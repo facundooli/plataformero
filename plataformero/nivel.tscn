@@ -7,6 +7,33 @@
 
 [node name="Jugador" parent="." instance=ExtResource("1_h06de")]
 position = Vector2(4, 13)
+scale = Vector2(1, 0.95999986)
 
 [node name="piso" parent="." instance=ExtResource("2_7gdj4")]
-position = Vector2(2, 80)
+position = Vector2(-1, 192)
+scale = Vector2(4.5355825, 3.293105)
+
+[node name="piso4" parent="." instance=ExtResource("2_7gdj4")]
+position = Vector2(1353, -319)
+rotation = -1.5777938
+scale = Vector2(4.5355825, 3.293105)
+
+[node name="piso2" parent="." instance=ExtResource("2_7gdj4")]
+position = Vector2(812.00006, 71)
+rotation = 0.00050127506
+scale = Vector2(-2.11654, 4.6910305)
+
+[node name="piso3" parent="." instance=ExtResource("2_7gdj4")]
+position = Vector2(994, -5.0000076)
+rotation = -0.0015311837
+scale = Vector2(-0.806384, 2.9804997)
+
+[node name="piso5" parent="." instance=ExtResource("2_7gdj4")]
+position = Vector2(1245.0001, -70)
+rotation = -0.0015311837
+scale = Vector2(-0.80421096, 1.2468013)
+
+[node name="piso6" parent="." instance=ExtResource("2_7gdj4")]
+position = Vector2(996, -248.99998)
+rotation = -0.0015311837
+scale = Vector2(-0.80421096, 1.2468013)
