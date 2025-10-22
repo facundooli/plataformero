@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cv7r8gunl7fpq"]
+[gd_scene load_steps=7 format=3 uid="uid://cv7r8gunl7fpq"]
 
 [ext_resource type="PackedScene" uid="uid://bborcpy6sny84" path="res://Jugador/jugador.tscn" id="1_h06de"]
 [ext_resource type="Script" uid="uid://ke1t533heoor" path="res://nivel.gd" id="1_j87l1"]
 [ext_resource type="PackedScene" uid="uid://ghk2i0qqi5ob" path="res://utileria/piso.tscn" id="2_7gdj4"]
 [ext_resource type="PackedScene" uid="uid://dy3wtkt1rn618" path="res://utileria/moneda.tscn" id="4_ymy7k"]
 [ext_resource type="PackedScene" uid="uid://4h01qopmyiie" path="res://utileria/estrella.tscn" id="5_ymy7k"]
+[ext_resource type="PackedScene" uid="uid://cotscauqg4x6n" path="res://Jugador/powerups/salto.tscn" id="6_vttml"]
 
 [node name="nivel" type="Node2D"]
 script = ExtResource("1_j87l1")
@@ -51,6 +52,14 @@ position = Vector2(1242, -47)
 [node name="estrella" parent="." instance=ExtResource("5_ymy7k")]
 position = Vector2(1004, -39)
 
+[node name="Salto" parent="." instance=ExtResource("6_vttml")]
+position = Vector2(366, 112)
+
+[node name="Salto2" parent="." instance=ExtResource("6_vttml")]
+position = Vector2(823, 34)
+
 [connection signal="body_entered" from="Moneda" to="." method="_on_moneda_body_entered"]
 [connection signal="body_entered" from="Moneda2" to="." method="_on_moneda_body_entered"]
 [connection signal="body_entered" from="estrella" to="." method="_on_estrella_body_entered"]
+[connection signal="body_entered" from="Salto" to="Jugador" method="_on_salto_body_entered"]
+[connection signal="body_entered" from="Salto2" to="Jugador" method="_on_salto_body_entered"]
