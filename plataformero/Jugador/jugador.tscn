@@ -1,26 +1,72 @@
-[gd_scene load_steps=4 format=3 uid="uid://bborcpy6sny84"]
+[gd_scene load_steps=11 format=3 uid="uid://bborcpy6sny84"]
 
 [ext_resource type="Texture2D" uid="uid://tey7ecycjg3k" path="res://icon.svg" id="1_feffl"]
 [ext_resource type="Script" uid="uid://dv6x7qtemee8l" path="res://Jugador/jugador.gd" id="1_ug00j"]
+[ext_resource type="Texture2D" uid="uid://dkfrx2yghejl0" path="res://asset/frame para el juego/Frames pose estándar/214 sin título_20251022031122.png" id="2_ug00j"]
+[ext_resource type="Texture2D" uid="uid://cghxk35rcoaxi" path="res://asset/frame para el juego/Frames correr/214 sin título_20251022031228.png" id="3_pfhhi"]
+[ext_resource type="Texture2D" uid="uid://bcya5bxa5odik" path="res://asset/frame para el juego/Frames correr/214 sin título_20251022031237.png" id="4_p16do"]
+[ext_resource type="Texture2D" uid="uid://b1j3od4m6oh7p" path="res://asset/frame para el juego/Frames pose estándar/214 sin título_20251022031145.png" id="4_ur6xs"]
+[ext_resource type="Texture2D" uid="uid://cj1nent6awgc2" path="res://asset/frame para el juego/Frames correr/214 sin título_20251022031247.png" id="5_1mnpf"]
+[ext_resource type="Texture2D" uid="uid://c3vcx0weumjri" path="res://asset/frame para el juego/Frames correr/214 sin título_20251022031255.png" id="6_s7ii8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ug00j"]
-size = Vector2(128, 127)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ur6xs"]
+radius = 32.0
+height = 118.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mpam0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pfhhi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_p16do")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1mnpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_s7ii8")
+}],
+"loop": false,
+"name": &"caminar",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ug00j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ur6xs")
+}],
+"loop": true,
+"name": &"quieto",
+"speed": 5.0
+}]
 
 [node name="Jugador" type="CharacterBody2D"]
 script = ExtResource("1_ug00j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -1)
+position = Vector2(-34.062443, -7.8750143)
+scale = Vector2(0.061800096, 0.062761195)
 texture = ExtResource("1_feffl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_ug00j")
+position = Vector2(-11, 2)
+shape = SubResource("CapsuleShape2D_ur6xs")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="temporizadorpowerupssalto" type="Timer" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-31, -4.0000005)
+scale = Vector2(0.058332626, 0.063805975)
+sprite_frames = SubResource("SpriteFrames_mpam0")
+animation = &"caminar"
+autoplay = "quieto"
+frame = 2
+frame_progress = 0.81922823
 
 [connection signal="timeout" from="temporizadorpowerupssalto" to="." method="_on_temporizadorpowerupssalto_timeout"]
