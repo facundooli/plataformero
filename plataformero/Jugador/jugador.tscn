@@ -90,11 +90,12 @@ shape = SubResource("CapsuleShape2D_ur6xs")
 [node name="temporizadorpowerupssalto" type="Timer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-28, 3)
+position = Vector2(-23, -5.0000005)
 scale = Vector2(0.058332626, 0.063805975)
 sprite_frames = SubResource("SpriteFrames_mpam0")
-animation = &"caminar"
+animation = &"salto"
 autoplay = "quieto"
-frame_progress = 0.23936844
+frame = 3
+frame_progress = 0.037027143
 
 [connection signal="timeout" from="temporizadorpowerupssalto" to="." method="_on_temporizadorpowerupssalto_timeout"]
