@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cv7r8gunl7fpq"]
+[gd_scene load_steps=8 format=3 uid="uid://cv7r8gunl7fpq"]
 
 [ext_resource type="PackedScene" uid="uid://bborcpy6sny84" path="res://Jugador/jugador.tscn" id="1_h06de"]
 [ext_resource type="Script" uid="uid://ke1t533heoor" path="res://nivel.gd" id="1_j87l1"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dy3wtkt1rn618" path="res://utileria/moneda.tscn" id="4_ymy7k"]
 [ext_resource type="PackedScene" uid="uid://4h01qopmyiie" path="res://utileria/estrella.tscn" id="5_ymy7k"]
 [ext_resource type="PackedScene" uid="uid://cotscauqg4x6n" path="res://Jugador/powerups/salto.tscn" id="6_vttml"]
+[ext_resource type="PackedScene" uid="uid://c8ccx452pu8sh" path="res://utileria/pinche.tscn" id="7_6apml"]
 
 [node name="nivel" type="Node2D"]
 script = ExtResource("1_j87l1")
@@ -36,7 +37,7 @@ scale = Vector2(-0.806384, 2.9804997)
 [node name="piso5" parent="." instance=ExtResource("2_7gdj4")]
 position = Vector2(1255, 27)
 rotation = -0.0015311837
-scale = Vector2(-0.80421096, 1.2468013)
+scale = Vector2(-1.364272, 1.2468013)
 
 [node name="piso6" parent="." instance=ExtResource("2_7gdj4")]
 position = Vector2(1245, -172.99998)
@@ -58,8 +59,12 @@ position = Vector2(366, 112)
 [node name="Salto2" parent="." instance=ExtResource("6_vttml")]
 position = Vector2(823, 34)
 
+[node name="pinche" parent="." instance=ExtResource("7_6apml")]
+position = Vector2(1044, 52)
+
 [connection signal="body_entered" from="Moneda" to="." method="_on_moneda_body_entered"]
 [connection signal="body_entered" from="Moneda2" to="." method="_on_moneda_body_entered"]
 [connection signal="body_entered" from="estrella" to="." method="_on_estrella_body_entered"]
 [connection signal="body_entered" from="Salto" to="Jugador" method="_on_salto_body_entered"]
 [connection signal="body_entered" from="Salto2" to="Jugador" method="_on_salto_body_entered"]
+[connection signal="body_entered" from="pinche" to="Jugador" method="_on_pinche_body_entered"]

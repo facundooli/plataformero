@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8ccx452pu8sh"]
+
+[ext_resource type="Texture2D" uid="uid://bgxpato2v3k2l" path="res://utileria/spikes.png" id="1_uynam"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyb2b"]
+size = Vector2(31, 25)
+
+[node name="pinche" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6.999999, -18.8996)
+scale = Vector2(0.53125, 0.7218874)
+texture = ExtResource("1_uynam")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, -7.5)
+shape = SubResource("RectangleShape2D_gyb2b")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bborcpy6sny84"]
+[gd_scene load_steps=15 format=3 uid="uid://bborcpy6sny84"]
 
 [ext_resource type="Texture2D" uid="uid://tey7ecycjg3k" path="res://icon.svg" id="1_feffl"]
 [ext_resource type="Script" uid="uid://dv6x7qtemee8l" path="res://Jugador/jugador.gd" id="1_ug00j"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://b1j3od4m6oh7p" path="res://asset/frame para el juego/Frames pose estándar/214 sin título_20251022031145.png" id="4_ur6xs"]
 [ext_resource type="Texture2D" uid="uid://cj1nent6awgc2" path="res://asset/frame para el juego/Frames correr/214 sin título_20251022031247.png" id="5_1mnpf"]
 [ext_resource type="Texture2D" uid="uid://c3vcx0weumjri" path="res://asset/frame para el juego/Frames correr/214 sin título_20251022031255.png" id="6_s7ii8"]
+[ext_resource type="Texture2D" uid="uid://pkfoojk3ac4f" path="res://asset/frame para el juego/Frames salto/214 sin título_20251022031152.png" id="9_0kgk6"]
+[ext_resource type="Texture2D" uid="uid://bpofeic6ywdc" path="res://asset/frame para el juego/Frames salto/214 sin título_20251022031045.png" id="10_4sa7g"]
+[ext_resource type="Texture2D" uid="uid://dwkqfcgoo602p" path="res://asset/frame para el juego/Frames salto/214 sin título_20251022031058.png" id="11_tnctr"]
+[ext_resource type="Texture2D" uid="uid://cgckwdjop8heb" path="res://asset/frame para el juego/Frames salto/214 sin título_20251022031221.png" id="12_le1eq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ur6xs"]
 radius = 32.0
@@ -15,6 +19,14 @@ height = 118.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mpam0"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_tnctr")
+}],
+"loop": true,
+"name": &"caida",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_pfhhi")
@@ -28,7 +40,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_s7ii8")
 }],
-"loop": false,
+"loop": true,
 "name": &"caminar",
 "speed": 6.0
 }, {
@@ -42,6 +54,23 @@ animations = [{
 "loop": true,
 "name": &"quieto",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_0kgk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4sa7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_tnctr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_le1eq")
+}],
+"loop": false,
+"name": &"salto",
+"speed": 7.0
 }]
 
 [node name="Jugador" type="CharacterBody2D"]
@@ -61,12 +90,10 @@ shape = SubResource("CapsuleShape2D_ur6xs")
 [node name="temporizadorpowerupssalto" type="Timer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-31, -4.0000005)
+position = Vector2(-16.999996, 2)
 scale = Vector2(0.058332626, 0.063805975)
 sprite_frames = SubResource("SpriteFrames_mpam0")
-animation = &"caminar"
+animation = &"caida"
 autoplay = "quieto"
-frame = 2
-frame_progress = 0.81922823
 
 [connection signal="timeout" from="temporizadorpowerupssalto" to="." method="_on_temporizadorpowerupssalto_timeout"]
