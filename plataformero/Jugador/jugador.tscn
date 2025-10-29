@@ -70,7 +70,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"salto",
-"speed": 7.0
+"speed": 4.0
 }]
 
 [node name="Jugador" type="CharacterBody2D"]
@@ -93,7 +93,7 @@ shape = SubResource("CapsuleShape2D_ur6xs")
 position = Vector2(-16.999996, 2)
 scale = Vector2(0.058332626, 0.063805975)
 sprite_frames = SubResource("SpriteFrames_mpam0")
-animation = &"caida"
+animation = &"salto"
 autoplay = "quieto"
 
 [connection signal="timeout" from="temporizadorpowerupssalto" to="." method="_on_temporizadorpowerupssalto_timeout"]
