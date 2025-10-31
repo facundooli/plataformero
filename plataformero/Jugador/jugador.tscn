@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bborcpy6sny84"]
+[gd_scene load_steps=14 format=3 uid="uid://bborcpy6sny84"]
 
 [ext_resource type="Texture2D" uid="uid://tey7ecycjg3k" path="res://icon.svg" id="1_feffl"]
 [ext_resource type="Script" uid="uid://dv6x7qtemee8l" path="res://Jugador/jugador.gd" id="1_ug00j"]
@@ -11,11 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://pkfoojk3ac4f" path="res://asset/frame para el juego/Frames salto/214 sin título_20251022031152.png" id="9_0kgk6"]
 [ext_resource type="Texture2D" uid="uid://bpofeic6ywdc" path="res://asset/frame para el juego/Frames salto/214 sin título_20251022031045.png" id="10_4sa7g"]
 [ext_resource type="Texture2D" uid="uid://dwkqfcgoo602p" path="res://asset/frame para el juego/Frames salto/214 sin título_20251022031058.png" id="11_tnctr"]
-[ext_resource type="Texture2D" uid="uid://cgckwdjop8heb" path="res://asset/frame para el juego/Frames salto/214 sin título_20251022031221.png" id="12_le1eq"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ur6xs"]
-radius = 32.0
-height = 118.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kgk6"]
+size = Vector2(56, 101)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mpam0"]
 animations = [{
@@ -64,38 +62,36 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("11_tnctr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_le1eq")
 }],
 "loop": false,
 "name": &"salto",
-"speed": 4.0
+"speed": 3.0
 }]
 
 [node name="Jugador" type="CharacterBody2D"]
+scale = Vector2(1.0465614, 0.9542597)
 script = ExtResource("1_ug00j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-34.062443, -7.8750143)
+position = Vector2(-75283.99, -65499)
 scale = Vector2(0.061800096, 0.062761195)
 texture = ExtResource("1_feffl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-11, 2)
-shape = SubResource("CapsuleShape2D_ur6xs")
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_0kgk6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2.8665352, -85.93048)
+scale = Vector2(7.388126, -6.282861)
 
 [node name="temporizadorpowerupssalto" type="Timer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-23, -5.0000005)
+position = Vector2(-6.9999995, -11.000001)
 scale = Vector2(0.058332626, 0.063805975)
 sprite_frames = SubResource("SpriteFrames_mpam0")
 animation = &"salto"
 autoplay = "quieto"
-frame = 3
-frame_progress = 0.037027143
 
 [connection signal="timeout" from="temporizadorpowerupssalto" to="." method="_on_temporizadorpowerupssalto_timeout"]
