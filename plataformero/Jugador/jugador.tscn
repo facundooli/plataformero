@@ -65,7 +65,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"salto",
-"speed": 3.0
+"speed": 6.0
 }]
 
 [node name="Jugador" type="CharacterBody2D"]
@@ -93,5 +93,7 @@ scale = Vector2(0.058332626, 0.063805975)
 sprite_frames = SubResource("SpriteFrames_mpam0")
 animation = &"salto"
 autoplay = "quieto"
+frame = 2
+frame_progress = 1.0
 
 [connection signal="timeout" from="temporizadorpowerupssalto" to="." method="_on_temporizadorpowerupssalto_timeout"]
